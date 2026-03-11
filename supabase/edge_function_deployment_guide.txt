@@ -1,0 +1,50 @@
+
+Deploy Edge Functions from Supabase Dashboard
+
+🔷 STEP 1 — Go to Edge Functions
+
+Open supabase.com → your project
+Click Edge Functions in the left sidebar
+Click "Create a new function" button
+
+
+🔷 STEP 2 — Create create_rental
+
+Name it exactly: create_rental
+Click Create Function
+You'll see a code editor open
+Delete everything in the editor
+Copy the entire code from the create_rental/index.ts file I gave you
+Paste it into the editor
+Click Deploy ✅
+
+
+🔷 STEP 3 — Repeat for complete_rental
+
+Go back to Edge Functions → Create a new function
+Name it: complete_rental
+Delete default code → paste complete_rental/index.ts code
+Click Deploy ✅
+
+
+🔷 STEP 4 — Repeat for record_payment
+
+Go back to Edge Functions → Create a new function
+Name it: record_payment
+Delete default code → paste record_payment/index.ts code
+Click Deploy ✅
+
+
+🔷 STEP 5 — Verify
+All 3 should show as Active in your Edge Functions list:
+✅ create_rental
+✅ complete_rental
+✅ record_payment
+
+🔷 STEP 6 — Call them from Flutter
+In your Flutter app, you call them like this:
+dartfinal res = await Supabase.instance.client.functions.invoke(
+  'create_rental',
+  body: { ...your data... },
+);
+That's it — no CLI, no terminal, no installation needed. Everything is done inside the Supabase website.
